@@ -1,0 +1,30 @@
+
+<div layout="row">
+    <p>
+        Please click below button to load Blocks.
+    </p>
+<div class="text-center"layout-margin mt=2>
+<button mat-raised-button color="primary" (click)="btnClick()">Load Blocks</button>
+</div>
+<hr>
+<mat-accordion isplayMode="flat" class="mat-table" *ngIf="blocks.length>0"> 
+    <section matSort class="mat-elevation-z2 mat-header-row">
+        <span class="mat-header-cell" mat-sort-header="vesselName">Id</span>
+        <span class="mat-header-cell" mat-sort-header="vesselId">Time Stamp</span>
+        <span class="mat-header-cell" mat-sort-header="vesselStatus">Trans Count</span>
+      </section>
+    <mat-expansion-panel *ngFor="let block of blocks">
+      <mat-expansion-panel-header>
+          
+        <span class="mat-cell">{{block.id}}</span>
+        <span class="mat-cell">{{block.timestamp | date: 'short'}}</span>
+        <span class="mat-cell">{{block.transactions.length}}</span>
+     
+      </mat-expansion-panel-header>
+      
+      <div><pre>{{block | json}}</pre></div>
+  
+    </mat-expansion-panel>
+  
+  </mat-accordion>
+</div>
