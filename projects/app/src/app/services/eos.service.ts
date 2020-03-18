@@ -24,6 +24,9 @@ export class EosService {
     return body || { };
   }
 
+  /*
+  get_info service funciton is used to get head info.
+  */
   getInfo(): Observable<any>{
     return this.http.get( environment.blockchainbaseUrl + 'get_info')
       .pipe(
@@ -34,6 +37,9 @@ export class EosService {
   }
   
 
+  /*
+  getBlock service function is used to geht the passed blockid's block information
+  */
   getBlock(blockid): Observable<any>{
     return this.http.post(environment.blockchainbaseUrl + 'get_block',{"block_num_or_id": blockid})
     .pipe(

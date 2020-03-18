@@ -31,11 +31,7 @@ describe('InfoComponent', () => {
     fixture.detectChanges();
   });
 
-  /*
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-  */
+
  afterEach(() => {
   httpMock.expectOne(req =>req.method==='GET' && req.url==='https://api.eosnewyork.io/v1/chain/get_info');
 });
